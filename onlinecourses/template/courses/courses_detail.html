@@ -1,0 +1,31 @@
+{% extends 'courses/base.html' %}
+
+{% block content %}
+    <a href="{% url 'courses' %}" class="btn btn-secondary btn-block btn-outline-secondary">Back to List</a>
+    <div class="card mt-2">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-3 bg-light">
+                <h1 class="p-1 mt-3 text-center">{{courses.title}}</h1>
+                <ul>
+                    <li>{{courses.lectures}} lectures</li>
+                    <li>{{courses.hours}} hours</li>
+                </ul>
+            </div>
+            <div class="col-md-9">
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">Provided by: {{courses.provided_by}}</li>
+                  <li class="list-group-item">Last updated on: {{courses.updated|timesince}} ago</li>
+                  <li class="list-group-item">Level: {{courses.type}}</li>
+                  <li class="list-group-item">Price: $ {{courses.price}}</li>
+                </ul>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+                <p class="mt-2">{{courses.description}}</p>
+            </div>
+          </div>
+        </div>
+    </div>
+{% endblock %}
